@@ -2,36 +2,32 @@
 
 ## Current status
 
-- Foundations: usable, still reinforced in context
-- Big-O: working knowledge
-- Current topic: Two Pointers — Day 1
-- Current problem: Two Sum II — sorted array
+- Foundations: usable, reinforced in context
+- Big-O: working knowledge (reinforced difference between linear decrement vs halving)
+- Current topic: Two Pointers — Day 1 completed
+- Solved problem: Two Sum II (Input Array Is Sorted) — LeetCode 167
+
+## Completed Checkpoints
+
+### Day 1: Two Sum II (Sorted Array)
+- [x] **Invariant in own words:** Moving left pointer rightwards strictly increases/maintains sum; moving right pointer leftwards strictly decreases/maintains sum. Safely eliminates candidates because smallest + largest boundaries prove no other pair can match.
+- [x] **Hand trace:** Traced `[2, 7, 11, 15]`, target 9 step-by-step to `L=0, R=1`.
+- [x] **From-scratch implementation:** Written and verified in Python (`days/day_01_two_sum_sorted.py`).
+- [x] **$O(n)$ / $O(1)$ proof:** Each step reduces pointer separation by 1; maximum $n - 1$ steps with $O(1)$ work per step = $O(n)$ time, $O(1)$ auxiliary space.
+- [x] **Misconception documented:** Initial thought was $O(n \log n)$; clarified that $\log n$ comes from division/halving (e.g. binary search), whereas stepping pointers by 1 is strictly linear $O(n)$.
+- [x] **Edge case verification:** Tested negatives (`[-5, -3, 0, 2, 4]`), duplicates (`[1, 2, 2, 3, 5]`), and nonexistent targets.
 
 ## Recent strengths
 
-- Understands that n is input size.
-- Understands Big-O as growth/scaling rather than exact seconds.
-- Recognizes fixed work, linear scans, logarithmic shrinking, and quadratic nested work in common cases.
-- Understands sequential addition vs nested multiplication.
-- Understands dropping constants and lower-order terms.
+- Understands that $n$ is input size and Big-O is growth rate.
+- Accurately determined safe pointer movement from monotonic properties of sorted arrays.
+- Implemented correct pointer termination condition (`left < right`) and boundary adjustments from scratch.
+- Handled negative and duplicate edge cases cleanly with first-principles reasoning.
 
-## Recent gaps to reinforce
+## Gaps reinforced this session
 
-- Explain O(log n) from repeated reduction, not by associating it only with binary search/sorting.
-- Do not equate target matching with O(log n); inspect the actual algorithm and input structure.
-- Separate best/average/worst-case analysis from the Big-O notation itself.
-- Continue deriving complexity from unfamiliar code rather than recognizing memorized shapes.
-
-## Learning behavior
-
-Pavan learns best through interactive questioning, tiny traces, explicit invariants, and direct correction. When confidence drops, narrow the question and build back up rather than abandoning the topic.
+- **Linear vs Logarithmic:** Do not assume search/matching has a $\log n$ factor unless the search space is being geometrically halved. Constant-step inward moves are $O(n)$.
 
 ## Next checkpoint
 
-Complete Day 1 Two Sum II with:
-- invariant in own words,
-- hand trace,
-- from-scratch code,
-- O(n) / O(1) proof,
-- one misconception documented if applicable,
-- at least one variation solved without being told the pattern.
+- Two Pointers Problem 2 (e.g., Valid Palindrome or Container With Most Water / 3Sum) to test pointer movement and invariant identification on a fresh problem.
