@@ -46,13 +46,12 @@ Become capable of solving unfamiliar algorithmic problems from first principles,
 
 ### 🟨 IN PROGRESS
 
-- [ ] Two Pointers — Day 1
-  - [ ] Invariant
-  - [ ] Constraint signature
-  - [ ] Hand trace
-  - [ ] Implementation
-  - [ ] Complexity proof
-  - [ ] 3 independent variations
+- [ ] Two Pointers (1/11 Problems Complete)
+  - [x] Guided 1: Two Sum II (Invariant, Hand trace, Implementation, O(n) proof)
+  - [ ] Guided 2: Container With Most Water (Area monotonicity & elimination proof)
+  - [ ] 3 Independent Easy problems
+  - [ ] 5 Medium problems
+  - [ ] 1 Unlabeled problem
 
 ### 🟩 REVIEW
 

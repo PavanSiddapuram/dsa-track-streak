@@ -123,3 +123,17 @@ def two_sum_sorted(numbers: list[int], target: int) -> list[int]:
 - **When to think of Two Pointers:** When the search space has a monotonic direction (e.g. sorted array, palindrome checking, inward bounding).
 - **Core Requirement:** Each comparison must give a *definitive reason* to safely discard an entire row/column/element from future consideration.
 - **Stepping vs Halving:** Moving pointers by 1 each step yields $O(n)$ linear time, unlike binary search which cuts the remaining space by half each step to achieve $O(\log n)$.
+
+---
+
+## Learner Log & Error Journal (Pavan)
+
+| Dimension | Observation / Log | Key Improvement & Takeaway |
+|---|---|---|
+| **Initial Intuition** | Correctly identified that sorted array guarantees monotonic increase moving right and monotonic decrease moving left. | Strong natural grasp of sorted order and directional movement. |
+| **Trace Precision** | Executed manual trace of `[2, 7, 11, 15]` cleanly: `17 > 9 -> R=2`, `13 > 9 -> R=1`, `9 == 9 -> Match!`. | Tracing step-by-step before touching code gave 100% confidence. |
+| **Complexity Estimate (Error)** | Initially guessed **$O(n \log n)$** instead of **$O(n)$**. | **Why this happened:** Tendency to associate "searching/matching" with logarithmic factors. <br>**Fix:** Always count loop steps directly from the pointers: distance is $n-1$, each step decrements distance by $1$. At most $n-1$ steps $\implies O(n)$. $\log n$ is strictly for repeated division/halving. |
+| **Comment vs Code Reversal** | In code comment, wrote *"increase it by moving right inward"* while the code correctly did `left += 1`. | Minor verbal slip. Keep mental spatial anchor: `left` moves rightward ($+$), `right` moves leftward ($-$). |
+| **Implementation** | Written cleanly from scratch with correct pointer bounds `while left < right`, accurate sum comparisons, and graceful empty return `[]`. | Production-grade clean implementation. |
+| **Edge Cases Analysis** | Correctly reasoned through negative numbers (monotonicity is algebraic) and duplicates (non-decreasing guarantees no wrong-way divergence). | First-principles reasoning on constraints held up across all test cases. |
+
